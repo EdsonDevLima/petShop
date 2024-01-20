@@ -55,11 +55,13 @@ modal.addEventListener("click", () => {
 const menuIcone = document.querySelector(".icone-menu-mobile");
 var menu = document.querySelector(".menu-mobile");
 menuIcone.addEventListener("click", () => {
-  if (menu.style.margin !== 0) {
-    menu.style.margin = 0;
-    menu = document.querySelector(".menu-mobile");
+  if (menu.classList.contains("menu-disable")) {
+    menuIcone.classList.add("hidden-icone");
+    menu.classList.add("menu-active");
+    menu.classList.remove("menu-disable");
   } else {
-    menu.style.margin = -400;
-    menu = document.querySelector(".menu-mobile");
+    menuIcone.classList.remove("hidden-icone");
+    menu.classList.add("menu-disable");
+    menu.classList.remove("menu-active");
   }
 });
